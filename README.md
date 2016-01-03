@@ -2,10 +2,10 @@
 
 ##包含两个Design的扩展
 
--1 ParallaxScaleBehavior 下拉缩放CollapsingToolbarLayout中的image
--2 CollapsingCenterLayout 居中显示title的CollapsingToolbarLayout
+-  1 ParallaxScaleBehavior 下拉缩放CollapsingToolbarLayout中的image
+-  2 CollapsingCenterLayout 居中显示title的CollapsingToolbarLayout
 
-<img width="480" height="847" src="https://github.com/anzewei/Android-DesignEx/blob/master/ext/ezgif.com-resize.gif" />
+<img src="https://github.com/anzewei/Android-DesignEx/blob/master/ext/ezgif.com-resize.gif" />
 # Demo Apk
 
 <a href="https://github.com/anzewei/Android-DesignEx/blob/master/ext/sample-debug.apk?raw=true">下载</a>
