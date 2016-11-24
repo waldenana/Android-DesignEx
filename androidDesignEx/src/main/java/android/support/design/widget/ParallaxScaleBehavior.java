@@ -136,6 +136,18 @@ public class ParallaxScaleBehavior extends AppBarLayout.Behavior {
      * @return 要进行缩放的View
      */
     private View getParallaxView(AppBarLayout appBarLayout) {
+        if (appBarLayout.getChildCount() > 0) {
+            View view = appBarLayout.getChildAt(0);
+            if (view instanceof CollapsingToolbarLayout){
+                int count = ((CollapsingToolbarLayout) view).getChildCount();
+                for (int i = 0; i < count; i++) {
+                    View child = ((CollapsingToolbarLayout) view).getChildAt(i);
+                    CollapsingToolbarLayout.LayoutParams params = (CollapsingToolbarLayout.LayoutParams) child.getLayoutParams();
+                    if (params.getCollapseMode() == CollapsingToolbarLayout.LayoutParams.COLLAPSE_MODE_PARALLAX)
+                        return child;
+                }
+            }
+        }
         return appBarLayout.findViewById(R.id.image);
     }
 
@@ -204,7 +216,7 @@ public class ParallaxScaleBehavior extends AppBarLayout.Behavior {
         if (mAnimator == null) {
             mAnimator = ViewUtils.createAnimator();
             mAnimator.setInterpolator(AnimationUtils.DECELERATE_INTERPOLATOR);
-            mAnimator.setUpdateListener(new ValueAnimatorCompat.AnimatorUpdateListener() {
+            mAnimator.addUpdateListener(new ValueAnimatorCompat.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimatorCompat animation) {
                     overScroll(coordinatorLayout, child,
