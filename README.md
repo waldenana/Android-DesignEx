@@ -11,14 +11,14 @@
 <a href="https://github.com/anzewei/Android-DesignEx/blob/master/ext/sample-debug.apk?raw=true">下载</a>
 
 # 使用
-[ ![Download](https://api.bintray.com/packages/anzewei/maven/com.github.anzewei.design/images/download.svg) ](https://bintray.com/anzewei/maven/com.github.anzewei.design/0.1)
+[ ![Download](https://api.bintray.com/packages/anzewei/maven/com.github.anzewei.design/images/download.svg) ](https://bintray.com/anzewei/maven/com.github.anzewei/0.3)
 
 ## Step 1
 
 - 添加以下代码到 build.gradle
 
 ``` groovy
-compile 'com.github.anzewei.design:androidDesignEx:0.3'
+compile 'com.github.anzewei:androidDesignEx:0.3'
 ``` 
 	
 ## ParallaxScaleBehavior的使用
