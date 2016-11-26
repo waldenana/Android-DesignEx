@@ -11,7 +11,6 @@
 <a href="https://github.com/anzewei/Android-DesignEx/blob/master/ext/sample-debug.apk?raw=true">下载</a>
 
 # 使用
-[ ![Download](https://api.bintray.com/packages/anzewei/maven/com.github.anzewei.design/images/download.svg) ](https://bintray.com/anzewei/maven/com.github.anzewei/0.3)
 
 ## Step 1
 
