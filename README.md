@@ -23,7 +23,7 @@ compile 'com.github.anzewei.design:androidDesignEx:0.4'
 	
 ## ParallaxScaleBehavior的使用
 
--  为AppBarLayout 设置Behavior,并且在CollapsingToolbarLayout中需要包含一个id为image的view，这个view用于缩放
+-  为AppBarLayout 设置Behavior,CollapsingToolbarLayout的第一个child用于缩放，如果为AppBarLayout的第一个child不是CollapsingToolbarLayout,将会使用id为image的view
 
 ```xml
     <android.support.design.widget.AppBarLayout
