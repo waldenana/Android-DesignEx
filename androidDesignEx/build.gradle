@@ -2,9 +2,9 @@ apply plugin: 'com.android.library'
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'com.github.anzewei'
+    bintrayName = 'com.github.anzewei.design'
 
-    publishedGroupId = 'com.github.anzewei'
+    publishedGroupId = 'com.github.anzewei.design'
     libraryName = 'androidDesignEx'
     artifact = 'androidDesignEx'
 
@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/anzewei/Android-DesignEx'
     gitUrl = 'https://github.com/anzewei/Android-DesignEx.git'
 
-    libraryVersion = '0.3'
+    libraryVersion = '0.4'
 
     developerId = 'anzewei'
     developerName = 'An Zewei'
