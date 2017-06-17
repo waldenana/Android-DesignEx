@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import java.lang.reflect.Field;
  * Created by zewei on 2015-12-25.
  */
 public class ParallaxScaleBehavior extends AppBarLayout.Behavior {
+    private static final String TAG = "ParallaxScaleBehavior";
     private ViewOffsetHelper mTopHelper;
     private View mContent;
     private ValueAnimatorCompat mAnimator;
@@ -51,6 +53,7 @@ public class ParallaxScaleBehavior extends AppBarLayout.Behavior {
         return super.onLayoutChild(parent, abl, layoutDirection);
     }
 
+
     @Override
     public boolean onNestedPreFling(CoordinatorLayout coordinatorLayout, AppBarLayout child, View target, float velocityX, float velocityY) {
         return getTopAndBottomOffset() > 0 //if has scale don't fling
@@ -63,12 +66,12 @@ public class ParallaxScaleBehavior extends AppBarLayout.Behavior {
         int oldTop = getTopAndBottomOffset();
         if (oldTop > 0 || newOffset >= 0) {//fling start
             // start parallax
-            return overScroll(coordinatorLayout, header, newOffset, getMaxRange());
+            return overScroll(coordinatorLayout, header, newOffset, getMaxRange(header));
         }
         int scale = super.setHeaderTopBottomOffset(coordinatorLayout, header, newOffset, minOffset, maxOffset);
         if (scale == 0 && newOffset > 0 && maxOffset == 0) {
             // start parallax
-            scale = overScroll(coordinatorLayout, header, newOffset, getMaxRange());
+            scale = overScroll(coordinatorLayout, header, newOffset, getMaxRange(header));
         } else {//stop parallax
             scaleContent(1);
             header.setClipChildren(true);
@@ -112,8 +115,8 @@ public class ParallaxScaleBehavior extends AppBarLayout.Behavior {
     /**
      * @return 下拉的最大值
      */
-    private int getMaxRange() {
-        return mContent != null ? mContent.getHeight() / 2 : 0;
+    private int getMaxRange(AppBarLayout layout) {
+        return layout != null ? layout.getHeight() / 2 : 0;
     }
 
     /**
@@ -123,10 +126,11 @@ public class ParallaxScaleBehavior extends AppBarLayout.Behavior {
         if (newOffset > maxOffset || mTopHelper == null)
             return 0;
         int c = super.setHeaderTopBottomOffset(coordinatorLayout, header, newOffset, Integer.MIN_VALUE, maxOffset);
+        Log.d(TAG," overScroll super setHeaderTopBottomOffset = "+c);
         if (c != 0) {
             int top = getTopAndBottomOffset();
             layoutAppbar(mToolLayout, -top);
-            float scale = newOffset == 0 ? 1 : (float) (header.getHeight() + newOffset + 2) / (float) header.getHeight();
+            float scale = newOffset == 0 ? 1 : (float) (mContent.getHeight() + newOffset + 2) / (float) mContent.getHeight();
             mTopHelper.setTopAndBottomOffset(-top / 2);
             scaleContent(scale);
             if (mOffset != null) {
@@ -246,7 +250,7 @@ public class ParallaxScaleBehavior extends AppBarLayout.Behavior {
                 @Override
                 public void onAnimationUpdate(ValueAnimatorCompat animation) {
                     overScroll(coordinatorLayout, child,
-                            animation.getAnimatedIntValue(), getMaxRange());
+                            animation.getAnimatedIntValue(), getMaxRange(child));
                 }
             });
         } else {

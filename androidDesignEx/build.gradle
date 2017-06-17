@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/anzewei/Android-DesignEx'
     gitUrl = 'https://github.com/anzewei/Android-DesignEx.git'
 
-    libraryVersion = '0.4'
+    libraryVersion = '0.5'
 
     developerId = 'anzewei'
     developerName = 'An Zewei'
