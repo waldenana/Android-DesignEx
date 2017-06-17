@@ -57,12 +57,24 @@ public class TabActivity extends AppCompatActivity implements ItemFragment.OnLis
         mViewPager.setAdapter(mSectionsPagerAdapter);
         TabLayout layout = (TabLayout) findViewById(R.id.tab_layout);
         layout.setupWithViewPager(mViewPager);
-        layout.postDelayed(new Runnable() {
+        int width = getResources().getDisplayMetrics().widthPixels;
+
+       View view = findViewById(R.id.zone_index_ctl);
+       ViewGroup.LayoutParams params = view.getLayoutParams();
+        params.height = width*382/680;//Image size
+        view.requestLayout();
+        StatusBarHelper.setDarkStatusDarkMode(getWindow(), true);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mViewPager.postDelayed(new Runnable() {
             @Override
             public void run() {
                 hideStatus();
             }
-        },1500);
+        },500);
     }
 
     private void hideStatus(){

@@ -126,12 +126,10 @@ public class ParallaxScaleBehavior extends AppBarLayout.Behavior {
         if (newOffset > maxOffset || mTopHelper == null)
             return 0;
         int c = super.setHeaderTopBottomOffset(coordinatorLayout, header, newOffset, Integer.MIN_VALUE, maxOffset);
-        Log.d(TAG," overScroll super setHeaderTopBottomOffset = "+c);
         if (c != 0) {
             int top = getTopAndBottomOffset();
             layoutAppbar(mToolLayout, -top);
-            float scale = newOffset == 0 ? 1 : (float) (mContent.getHeight() + newOffset + 2) / (float) mContent.getHeight();
-            mTopHelper.setTopAndBottomOffset(-top / 2);
+            float scale = newOffset == 0 ? 1 : (float) (mContent.getHeight() + newOffset*2 + 2) / (float) mContent.getHeight();
             scaleContent(scale);
             if (mOffset != null) {
                 try {

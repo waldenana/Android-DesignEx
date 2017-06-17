@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/anzewei/Android-DesignEx'
     gitUrl = 'https://github.com/anzewei/Android-DesignEx.git'
 
-    libraryVersion = '0.5'
+    libraryVersion = '0.6'
 
     developerId = 'anzewei'
     developerName = 'An Zewei'
@@ -31,7 +31,7 @@ android {
 
     defaultConfig {
         minSdkVersion 9
-        targetSdkVersion 22
+        targetSdkVersion 25
         versionCode 1
         versionName libraryVersion
     }

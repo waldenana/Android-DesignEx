@@ -13,10 +13,10 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/zone_index_appbar"
         android:layout_width="match_parent"
-        android:layout_height="226dp"
+        android:layout_height="wrap_content"
         app:layout_behavior="android.support.design.widget.ParallaxScaleBehavior"
         android:fitsSystemWindows="true"
-        android:background="#FFFFFF">
+        android:background="#dddddd">
 
 
         <android.support.design.widget.CollapsingToolbarLayout
@@ -24,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="186dp"
             android:fitsSystemWindows="true"
+            app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Light"
             app:contentScrim="#fff"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 

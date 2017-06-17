@@ -18,7 +18,7 @@
 - 添加以下代码到 build.gradle
 
 ``` groovy
-compile 'com.github.anzewei.design:androidDesignEx:0.5'
+compile 'com.github.anzewei.design:androidDesignEx:0.6'
 ``` 
 	
 ## ParallaxScaleBehavior的使用
